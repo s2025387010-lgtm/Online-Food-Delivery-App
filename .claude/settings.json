@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(npm install *)",
-      "Bash(mkdir \"c:/Users/786/Desktop/Food_delivery/backend\")",
-      "Bash(npm init *)"
-    ]
-  }
-}
