@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import FoodCard from '../components/FoodCard'
+import API_URL from '../config'
 
 const CATEGORIES = ['All', 'Pizza', 'Burger', 'Pasta', 'Salad', 'Dessert', 'Drinks']
 
@@ -13,7 +14,7 @@ export default function Menu() {
   const category = searchParams.get('category') || 'All'
 
   useEffect(() => {
-    fetch('/api/foods')
+    fetch(`${API_URL}/api/foods`)
       .then(r => r.json())
       .then(data => { setFoods(data); setLoading(false) })
       .catch(() => setLoading(false))

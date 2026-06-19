@@ -1,4 +1,5 @@
 import { useCart } from '../context/CartContext'
+import API_URL from '../config'
 
 export default function FoodCard({ food }) {
   const { addItem, items, updateQuantity } = useCart()
@@ -8,7 +9,7 @@ export default function FoodCard({ food }) {
     <div className="bg-white rounded-2xl shadow hover:shadow-md transition-shadow overflow-hidden flex flex-col">
       {food.image ? (
         <img
-          src={`http://localhost:5000${food.image}`}
+          src={`${API_URL}${food.image}`}
           alt={food.name}
           className="w-full h-44 object-cover"
         />

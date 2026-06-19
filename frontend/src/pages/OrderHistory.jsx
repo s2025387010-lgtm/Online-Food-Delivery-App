@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import API_URL from '../config'
 
 const STATUS_STYLE = {
   pending:      { badge: 'bg-yellow-100 text-yellow-700', label: 'Pending',      icon: '🕐' },
@@ -15,7 +16,7 @@ function OrderCard({ id }) {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetch(`/api/orders/${id}`)
+    fetch(`${API_URL}/api/orders/${id}`)
       .then(r => {
         if (!r.ok) throw new Error()
         return r.json()

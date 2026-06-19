@@ -6,7 +6,7 @@ const { v4: uuidv4 } = require('uuid');
 const ordersPath = path.join(__dirname, '../data/orders.json');
 const foodsPath = path.join(__dirname, '../data/foods.json');
 
-const readOrders = () => JSON.parse(fs.readFileSync(ordersPath, 'utf8'));
+const readOrders = () => fs.existsSync(ordersPath) ? JSON.parse(fs.readFileSync(ordersPath, 'utf8')) : [];
 const writeOrders = d => fs.writeFileSync(ordersPath, JSON.stringify(d, null, 2));
 const readFoods = () => JSON.parse(fs.readFileSync(foodsPath, 'utf8'));
 

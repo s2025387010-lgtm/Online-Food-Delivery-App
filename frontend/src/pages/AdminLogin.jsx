@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import API_URL from '../config'
 
 export default function AdminLogin() {
   const [key, setKey] = useState('')
@@ -12,7 +13,7 @@ export default function AdminLogin() {
     setLoading(true)
     setError('')
     try {
-      const res = await fetch('/api/admin/verify', {
+      const res = await fetch(`${API_URL}/api/admin/verify`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ key }),

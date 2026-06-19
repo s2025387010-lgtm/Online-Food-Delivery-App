@@ -1,6 +1,7 @@
 import { useNavigate, Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import FoodCard from '../components/FoodCard'
+import API_URL from '../config'
 
 const CATEGORIES = [
   { name: 'Pizza',   emoji: '🍕', bg: 'bg-red-50',    text: 'text-red-600',    hover: 'hover:bg-red-100' },
@@ -48,7 +49,7 @@ export default function Home() {
   const [popular, setPopular] = useState([])
 
   useEffect(() => {
-    fetch('/api/foods')
+    fetch(`${API_URL}/api/foods`)
       .then(r => r.json())
       .then(data => setPopular(data.slice(0, 3)))
       .catch(() => {})

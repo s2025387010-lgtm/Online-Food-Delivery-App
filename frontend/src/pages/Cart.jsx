@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
+import API_URL from '../config'
 
 // step: 'cart' | 'checkout' | 'success'
 export default function Cart() {
@@ -18,7 +19,7 @@ export default function Cart() {
     }
     setPlacing(true)
     try {
-      const res = await fetch('/api/orders', {
+      const res = await fetch(`${API_URL}/api/orders`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

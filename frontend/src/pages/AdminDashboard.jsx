@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import API_URL from '../config'
 
 const STATUS_OPTIONS = ['pending', 'preparing', 'on the way', 'delivered', 'cancelled']
 const STATUS_COLORS = {
@@ -29,13 +30,13 @@ export default function AdminDashboard() {
   }, [])
 
   const fetchFoods = async () => {
-    const res = await fetch('/api/admin/foods', { headers: authHeaders })
+    const res = await fetch(`${API_URL}/api/admin/foods`, { headers: authHeaders })
     if (res.status === 401) { navigate('/admin'); return }
     setFoods(await res.json())
   }
 
   const fetchOrders = async () => {
-    const res = await fetch('/api/admin/orders', { headers: authHeaders })
+    const res = await fetch(`${API_URL}/api/admin/orders`, { headers: authHeaders })
     if (res.ok) setOrders(await res.json())
   }
 
@@ -46,7 +47,7 @@ export default function AdminDashboard() {
     const fd = new FormData()
     Object.entries(form).forEach(([k, v]) => fd.append(k, v))
     if (image) fd.append('image', image)
-    const res = await fetch('/api/admin/foods', { method: 'POST', headers: authHeaders, body: fd })
+    const res = await fetch(`${API_URL}/api/admin/foods`, { method: 'POST', headers: authHeaders, body: fd })
     if (res.ok) {
       setForm({ name: '', description: '', price: '', category: '' })
       setImage(null)
@@ -58,18 +59,18 @@ export default function AdminDashboard() {
   const toggleAvailable = async (food) => {
     const fd = new FormData()
     fd.append('available', String(!food.available))
-    await fetch(`/api/admin/foods/${food.id}`, { method: 'PUT', headers: authHeaders, body: fd })
+    await fetch(`${API_URL}/api/admin/foods/${food.id}`, { method: 'PUT', headers: authHeaders, body: fd })
     fetchFoods()
   }
 
   const deleteFood = async (id) => {
     if (!confirm('Delete this food item?')) return
-    await fetch(`/api/admin/foods/${id}`, { method: 'DELETE', headers: authHeaders })
+    await fetch(`${API_URL}/api/admin/foods/${id}`, { method: 'DELETE', headers: authHeaders })
     fetchFoods()
   }
 
   const updateStatus = async (orderId, status) => {
-    await fetch(`/api/admin/orders/${orderId}/status`, {
+    await fetch(`${API_URL}/api/admin/orders/${orderId}/status`, {
       method: 'PUT',
       headers: { ...authHeaders, 'Content-Type': 'application/json' },
       body: JSON.stringify({ status }),
