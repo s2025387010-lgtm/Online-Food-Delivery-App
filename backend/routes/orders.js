@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const fs = require('fs');
 const path = require('path');
-const { v4: uuidv4 } = require('uuid');
 
 const ordersPath = path.join(__dirname, '../data/orders.json');
 const foodsPath = path.join(__dirname, '../data/foods.json');
@@ -33,7 +32,7 @@ router.post('/', (req, res) => {
   });
 
   const order = {
-    id: uuidv4(),
+    id: require('crypto').randomUUID(),
     items: orderItems,
     total: parseFloat(total.toFixed(2)),
     customerName,

@@ -2,7 +2,6 @@ const router = require('express').Router();
 const fs = require('fs');
 const path = require('path');
 const multer = require('multer');
-const { v4: uuidv4 } = require('uuid');
 const adminAuth = require('../middleware/adminAuth');
 
 const foodsPath = path.join(__dirname, '../data/foods.json');
@@ -39,7 +38,7 @@ router.post('/foods', adminAuth, upload.single('image'), (req, res) => {
     return res.status(400).json({ error: 'name, price and category required' });
   }
   const food = {
-    id: uuidv4(),
+    id: require('crypto').randomUUID(),
     name,
     description: description || '',
     price: parseFloat(price),
