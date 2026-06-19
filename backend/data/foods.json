@@ -1,0 +1,72 @@
+[
+  {
+    "id": "f1",
+    "name": "Margherita Pizza",
+    "description": "Classic tomato sauce with fresh mozzarella and basil",
+    "price": 12.99,
+    "category": "Pizza",
+    "image": null,
+    "available": true,
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "f2",
+    "name": "Chicken Burger",
+    "description": "Crispy chicken fillet with lettuce, tomato and mayo",
+    "price": 9.99,
+    "category": "Burger",
+    "image": null,
+    "available": true,
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "f3",
+    "name": "Spaghetti Bolognese",
+    "description": "Traditional Italian pasta with rich meat sauce",
+    "price": 11.99,
+    "category": "Pasta",
+    "image": null,
+    "available": true,
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "f4",
+    "name": "Caesar Salad",
+    "description": "Romaine lettuce, croutons, parmesan and caesar dressing",
+    "price": 8.99,
+    "category": "Salad",
+    "image": null,
+    "available": true,
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "f5",
+    "name": "Chocolate Lava Cake",
+    "description": "Warm chocolate cake with a gooey molten center",
+    "price": 6.99,
+    "category": "Dessert",
+    "image": null,
+    "available": true,
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "f6",
+    "name": "Fresh Lemonade",
+    "description": "Hand-squeezed lemonade with mint and ice",
+    "price": 3.99,
+    "category": "Drinks",
+    "image": null,
+    "available": true,
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "e0f0a49d-8b62-4f5b-aad9-b3042c45ac74",
+    "name": "Talha",
+    "description": "lahore",
+    "price": 10000,
+    "category": "Pizza",
+    "image": "/uploads/1781885675112-crm_img.jpg",
+    "available": true,
+    "createdAt": "2026-06-19T16:14:35.142Z"
+  }
+]
