@@ -22,7 +22,7 @@ const upload = multer({
 
 // Verify admin key (no auth middleware here — public endpoint)
 router.post('/verify', (req, res) => {
-  if (req.body.key !== process.env.ADMIN_KEY) {
+  if (req.body.key.trim() !== (process.env.ADMIN_KEY || '').trim()) {
     return res.status(401).json({ error: 'Invalid key' });
   }
   res.json({ valid: true });
